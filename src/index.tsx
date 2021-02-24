@@ -1,12 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
+import Apps from './App';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Apps />
+    <div>
+      <a href="https://www.tvmaze.com/">TVMaze</a>
+    </div>
   </React.StrictMode>,
   document.getElementById('root')
 );
