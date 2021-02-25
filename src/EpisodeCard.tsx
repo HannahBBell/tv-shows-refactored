@@ -25,22 +25,23 @@ interface EpisodeTypes {
     }
   };
 
+
 function padEpisode(unpadded: number) {
     return (unpadded < 10 ? `0${unpadded}` : unpadded);
 }
 
-function App(props: EpisodeTypes) {
+function EpisodeCard(props: EpisodeTypes) {
   return (
     <div className="Episodes">
       <h1>{props.name} - S{padEpisode(props.season)} E{padEpisode(props.number)}</h1>
-      <img src = {props.image.medium} alt = "Episode Picture"/>
+      <img src = {props.image.medium} alt = "Episode"/>
       <p>{props.summary}</p>
     </div>
   );
 }
 
-function mappedEpisodes() {
-    return (episodes.map(App))
-  };
+// function MappedEpisodes() {
+//     return (episodes.map(EpisodeCard))
+//   };
   
-export default mappedEpisodes;
+export default EpisodeCard;

@@ -1,13 +1,34 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './App.css';
-import mappedEpisodes from './Episodes';
+import EpisodeCard from './EpisodeCard';
+import SearchBar from './SearchBar';
+import episodes from './episodes.json';
+
+
 
 function Apps() {
+  const [episodeList, setEpisodeList] = useState(episodes)
+  const [input, setInput] = useState("")
+
+  console.log(input)
+  console.log(episodeList)
+  console.log(setInput, "Hello")
+
+  const filteredEpisodeList = episodeList.filter((episode) => {
+    return (episode.name.toLowerCase().includes(input.toLowerCase())) || episode.summary.toLowerCase().includes(input.toLowerCase())})
+
   return (
     <div>
-      {mappedEpisodes()}
+      <SearchBar input={input} setInput={setInput}/>
+      {filteredEpisodeList.map(EpisodeCard)}
     </div>
   )
 }
 
 export default Apps;
+
+
+// let text: string = event.target.value
+//             props.setEpisodeList(episodes.filter((episode)=> {
+//                 return episode.name.toLowerCase().includes(text.toLowerCase())
+//             }))
